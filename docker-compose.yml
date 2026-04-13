@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  hadoop:
+    build: .
+    container_name: hadoop-node-pseudo
+    hostname: hadoop-node-pseudo
+    ports:
+      - "9870:9870"   # HDFS Web UI
+      - "8088:8088"   # YARN Web UI
+    volumes:
+      - hadoop_data:/hadoop/dfs
+    tty: true
+
+volumes:
+  hadoop_data:
